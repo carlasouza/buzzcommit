@@ -54,6 +54,11 @@ __END__
       %center{style: "color: #333; padding-top: 200px; font-family: Courier; font-size: 24px; font-weight: bold;"}
         %a{href: "/", rel: "nofollow", style: "text-decoration: none; color: #333;"}= @msg.downcase.capitalize + '.'
       .push
+      %center
+        %iframe{allowtransparency: "true", frameborder: "0", scrolling: "no", src: "//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fbuzzcommit.com&width&layout=button&action=like&show_faces=false&share=false&height=20&appId=106768876164959", style: "border:none; overflow:hidden; height:20px; width: 70px;"}
+        %a.twitter-hashtag-button{ "data-url" => "http://buzzcommit.com", href: "https://twitter.com/intent/tweet?button_hashtag=BuzzfeedCommit&text=#{CGI.escapeHTML('\''+@msg.downcase.capitalize+'.\'')}"} Tweet this commit
+        :javascript
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
     .footer
       %center{style: "color: #333; font-family: Courier; font-size: 11px;"}
 

@@ -1,10 +1,11 @@
 # 22 ways I refactored this code
-
 # When you see this, you won't be able to stop filing bugs.
 # You Won't Believe What Happened When I Refactored This
 # You wont believe this one easy trick to get your code to compile
 # This developer checked in Git merge messages. What happened next is AMAZING!
 # Code reviewers hate it. This 400 char ternary will literally blow your mind!
+# This Chart Proves That Everyone You Love In “Game Of Thrones” Is Screwed
+# How to ...
 
 
 class BuzzfeedCommit
