@@ -1,4 +1,3 @@
-
 # 22 ways I refactored this code
 
 # When you see this, you won't be able to stop filing bugs.
@@ -24,7 +23,7 @@ class BuzzfeedCommit
       adjetive,
       noun,
       'that',
-      emotional_verb
+      consequence
     ].join ' '
   end
 
@@ -44,8 +43,8 @@ class BuzzfeedCommit
   # The problem was escalated to me. At 3:15, I was in tears.
   def self.type3
     [
-      ["#{time}", "Line #{number}"].shuffle.first,
-      emotional_verb
+      "Line #{number}",
+      consequence
     ].join ' '
   end
 
@@ -60,7 +59,10 @@ class BuzzfeedCommit
   def self._superlative
     [
       'hauntingly',
-      'of the most'
+      'of the most',
+      'amazing',
+      'incredible',
+      'unbelivable'
     ]
   end
 
@@ -68,42 +70,62 @@ class BuzzfeedCommit
     [
       'beautiful',
       'ridiculous',
-      'wierd'
+      'wierd',
+      'cute',
+      'ugly'
     ]
   end
 
   def self._noun
     [
-      'refactors',
+      'libs',
       'change requests',
       'lines of code',
       'bugs',
       'methods',
+      'functions'
       'unit tests'
     ]
   end
 
   def self._verb
-    [
-      'break',
-      'fix',
-      'refactor',
-      'compile'
-    ]
+    %w[ break fix refactor compile ]
   end
 
-  def self._emotional_verb
+  def self._consequence
     [
       "will make your head a'splode",
       'will blow your mind',
       'will make your skin crawl',
       'will make you cry',
-      'will restore Your Faith In Humanity',
-      'only developers from the 90s will understand!'
+      'will restore your faith in humanity',
+      'only developers from the 90s will understand!',
+      [ adverb, language, subject, action ] # [only] <language> <developers|experts|programers> <like|hate|love|understand>
     ]
   end
 
-  %w[_superlative _adjetive _noun _emotional_verb _verb].each do |name|
+  def _adverb
+    %w[ only all ]
+  end
+
+  def _language
+    %w[ C C+ C# Java Python Ruby Bash PHP Perl JavaScript Clojure CSS CoffeeScript HTML Haml Haskel Lua Objective-C Swift ]
+  end
+
+  def _subject
+    [
+      'developers',
+      'experts',
+      'programmers',
+      'developers from the 90s'
+    ]
+  end
+
+  def _action
+    %w[ like hate love understand ]
+  end
+
+  %w[_action _adverb _adjetive _consequence _language _noun _subject _superlative _verb].each do |name|
     define_singleton_method "#{name.gsub(/^_/,'')}" do
       self.send(name).shuffle.first
     end
