@@ -3,38 +3,33 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+#require 'gabba'
 
 set :public_folder, File.dirname(__FILE__) + '/public'
 set :root, File.dirname(__FILE__)
 set :static, enable
-set :dump_errors, true
+set :dump_errors, false
 set :raise_errors, false
 set :show_exceptions, false
 set :port, 80
 set :bind, '162.252.240.6'
 
 configure :production do
-  $host = 'http://buzzcommit.com'
+  $host = 'http://git.icanhazmsg.com'
+  $ga = Gabba::Gabba.new("UA-52951298-1",$host)
 end
 
 get '/' do
   require_relative './buzzfeed_commit.rb'
-  type = ['type1', 'type2', 'type3', 'type4'].shuffle.first
+  type = ['type1', 'type2', 'type3'].shuffle.first
   @msg = BuzzfeedCommit.send type
-  puts @msg
+#  gabba.identify_user(cookies[:__utma], cookies[:__utmz])
+#  puts $ga.page_view("Home", "/")
   haml :home
 end
 
-get '/robots.txt' do
- 'User-agent: *'
-end
-
-get '/ta' do
-  'Copyright Carla Souza <contact@carlasouza.com>'
-end
-
-not_found { redirect to('/') }
-error { redirect to('http://developerexcuses.com') }
+not_found { haml :home }
+error { haml :home }
 
 
 __END__
@@ -44,31 +39,33 @@ __END__
 %html
   %head
     %title Buzzfeed style Commits
-    %meta{content: "svn, github, buzzfeed, git, commit, message, coding, programming", name: "keywords"}/
-    %meta{content: "Commits Buzzfeed Style", name: "description"}/
-    %link{href: "http://buzzcommit.com/", rel: "canonical"}/
+    %meta{content: "git, commit, message, coding, programming", name: "keywords"}/
+    %meta{content: "Buzzfeed style commits", name: "description"}/
+    %link{href: "http://youwontbeliveinthiscommit.com/", rel: "canonical"}/
     :css
       * {margin: 0;} html, body {height: 100%;} .wrapper {min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -8em;} .footer, .push {height: 8em;}
   %body
     .wrapper
       %center{style: "color: #333; padding-top: 200px; font-family: Courier; font-size: 24px; font-weight: bold;"}
-        %a{href: "/", rel: "nofollow", style: "text-decoration: none; color: #333;"}= @msg.downcase.capitalize + '.'
+        %a{href: "/", rel: "nofollow", style: "text-decoration: none; color: #333;"}= @msg.downcase.capitalize
       .push
     .footer
       %center{style: "color: #333; font-family: Courier; font-size: 11px;"}
-
-        %script{async: "", src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-        / Buzzfeed commit msg
-        %ins.adsbygoogle{"data-ad-client" => "ca-pub-8736132667973306", "data-ad-slot" => "9669078882", style: "display:inline-block;width:728px;height:90px"}
         :javascript
-          (adsbygoogle = window.adsbygoogle || []).push({});
-
+          <!--
+              google_ad_client = "ca-pub-4336860580083128";
+              google_ad_slot = "1671975908";
+              google_ad_width = 728;
+              google_ad_height = 90;
+              //-->
+        %script{src: "http://pagead2.googlesyndication.com/pagead/show_ads.js", type: "text/javascript"}
         %br/
-        %a{href: 'http://carlasouza.com'} made with ♥
+        = succeed "\u{a9}" do
+          %br/
     :javascript
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-52950937-1']);
-      _gaq.push(['_setDomainName', 'buzzcommit.com']);
+      _gaq.push(['_setAccount', 'UA-52951298-1']);
+      _gaq.push(['_setDomainName', 'git.icanhazmsg.com']);
       _gaq.push(['_setAllowLinker', true]);
       _gaq.push(['_trackPageview']);
       (function() {

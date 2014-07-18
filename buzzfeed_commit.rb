@@ -48,6 +48,19 @@ class BuzzfeedCommit
     ].join ' '
   end
 
+  # [ number, noun, 'that', adverb, language, subject, action ] # [only] <language> <developers|experts|programers> <like|hate|love|understand>
+  def self.type4
+    [
+      number,
+      noun,
+      'that',
+      adverb,
+      language,
+      subject,
+      action
+    ]
+  end
+
   def self.time
     "#{rand(20)}:#{rand(59).to_s.rjust(2, "0")}"
   end
@@ -62,14 +75,20 @@ class BuzzfeedCommit
       'of the most',
       'amazing',
       'incredible',
-      'unbelivable'
+      'ridiculous',
+      'unbelivable',
+      'excellent',
+      'magnificent',
+      'wonderful',
+      'marvelous',
+      'supreme',
+      'outstanding'
     ]
   end
 
   def self._adjetive
     [
       'beautiful',
-      'ridiculous',
       'wierd',
       'cute',
       'ugly'
@@ -83,7 +102,7 @@ class BuzzfeedCommit
       'lines of code',
       'bugs',
       'methods',
-      'functions'
+      'functions',
       'unit tests'
     ]
   end
@@ -98,30 +117,31 @@ class BuzzfeedCommit
       'will blow your mind',
       'will make your skin crawl',
       'will make you cry',
-      'will restore your faith in humanity',
-      'only developers from the 90s will understand!',
-      [ adverb, language, subject, action ] # [only] <language> <developers|experts|programers> <like|hate|love|understand>
+      'will restore your faith in humanity'
     ]
   end
 
-  def _adverb
+
+  def self._adverb
     %w[ only all ]
   end
 
-  def _language
+  def self._language
     %w[ C C+ C# Java Python Ruby Bash PHP Perl JavaScript Clojure CSS CoffeeScript HTML Haml Haskel Lua Objective-C Swift ]
   end
 
-  def _subject
+  def self._subject
     [
       'developers',
       'experts',
       'programmers',
-      'developers from the 90s'
+      'developers from the 90s',
+      'haters',
+      'ninjas'
     ]
   end
 
-  def _action
+  def self._action
     %w[ like hate love understand ]
   end
 
