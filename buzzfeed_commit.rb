@@ -9,7 +9,7 @@
 
 class BuzzfeedCommit
 
-  #<number> of <superlative> <adjetive> <noun> that will <verb>
+  #<number> of <superlative> <adjective> <noun> that will <verb>
   # 16 Things I Broke with This Check-in
   # 40 hauntingly beautiful refactors you won't believe compile.
   # The 25 most ridiculous change requests from clueless end users. #17 will make your head a'splode.
@@ -20,7 +20,7 @@ class BuzzfeedCommit
     [
       number,
       superlative,
-      adjetive,
+      adjective,
       noun,
       'that',
       consequence
@@ -33,7 +33,7 @@ class BuzzfeedCommit
       verb,
       noun,
       'with this',
-      adjetive,
+      adjective,
       noun
     ].join ' '
   end
@@ -86,7 +86,7 @@ class BuzzfeedCommit
     ]
   end
 
-  def self._adjetive
+  def self._adjective
     [
       'beautiful',
       'wierd',
@@ -145,7 +145,7 @@ class BuzzfeedCommit
     %w[ like hate love understand ]
   end
 
-  %w[_action _adverb _adjetive _consequence _language _noun _subject _superlative _verb].each do |name|
+  %w[_action _adverb _adjective _consequence _language _noun _subject _superlative _verb].each do |name|
     define_singleton_method "#{name.gsub(/^_/,'')}" do
       self.send(name).shuffle.first
     end
