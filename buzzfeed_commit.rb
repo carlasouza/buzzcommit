@@ -113,6 +113,11 @@ class BuzzfeedCommit
 
   def self._consequence
     [
+      'will make you shiver',
+      "looks really freakin' awsome",
+      'will improve your day',
+      'will finally bring you some peace of mind',
+      'are never going to pass the tests',
       "will make your head a'splode",
       'will blow your mind',
       'will make your skin crawl',
