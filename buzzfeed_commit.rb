@@ -58,7 +58,7 @@ class BuzzfeedCommit
       language,
       subject,
       action
-    ]
+    ].join ' '
   end
 
   def self.time
