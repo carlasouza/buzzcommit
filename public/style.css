@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  font-size:10px;
+  color: #333;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;;
+}
+h1 {
+  font-size:2em;
+  font-weight:normal;
+  margin-bottom:200px;
+}
+html, body {
+  height: 100%;
+}
+p {
+  font-size: 2em;
+}
+.message {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.wrapper {
+  padding-top: 100px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -8em;
+}
+.red {
+  color: red;
+}
+.red.buzzfeed {
+  font-size: 2em;
+}
+.buzzfeed {
+  font-family: Montserrat;
+}
+.footer, .push {
+  height: 8em;
+}
