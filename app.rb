@@ -10,8 +10,8 @@ set :static, enable
 set :dump_errors, true
 set :raise_errors, false
 set :show_exceptions, false
-# set :port, 80
-# set :bind, '162.252.240.6'
+set :port, 80
+set :bind, '162.252.240.6'
 
 configure :production do
   $host = 'http://buzzcommit.com'
@@ -77,7 +77,7 @@ __END__
 
         %br/
         %a.red{title: 'Made by', href: 'http://carlasouza.com'}♥
-        %a{title: 'Inspiration', href: 'https://storify.com/anirvan/buzzfeed-style-commit-messages'}♕
+        %a{title: 'Inspiration', href: 'https://storify.com/anirvan/buzzfeed-style-commit-messages'}♦
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-52950937-1']);
