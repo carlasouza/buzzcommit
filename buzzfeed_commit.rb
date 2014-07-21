@@ -1,3 +1,5 @@
+## Examples
+#
 # 22 ways I refactored this code
 # When you see this, you won't be able to stop filing bugs.
 # You Won't Believe What Happened When I Refactored This
@@ -6,6 +8,17 @@
 # Code reviewers hate it. This 400 char ternary will literally blow your mind!
 # This Chart Proves That Everyone You Love In “Game Of Thrones” Is Screwed
 # How to ...
+
+## Classification
+#
+# <you wont belive> in these <superlative> <adjetive> <noun>
+# <you wont belive> what happened [when|after] I <past_verb> these <noun>
+# <past_verb> some <noun>. What happened next [is <adjetive>|<consequence>]
+# How to <verb> <noun> with these <number> <superlative> <adjetive> <noun>
+# How to <verb> <noun> in <number> ways
+# <number> <adjetive> ways to <verb> <noun>
+# <number> <adjetive> ways I <past_verb> <noun>
+# This developer <verb> <noun>. What happened next is <adjetive>
 
 
 class BuzzfeedCommit
