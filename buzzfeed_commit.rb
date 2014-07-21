@@ -9,16 +9,6 @@
 # This Chart Proves That Everyone You Love In “Game Of Thrones” Is Screwed
 # How to ...
 
-## Classification
-#
-# <you wont belive> in these <superlative> <adjetive> <noun>
-# <you wont belive> what happened [when|after] I <past_verb> these <noun>
-# <past_verb> some <noun>. What happened next [is <adjetive>|<consequence>]
-# How to <verb> <noun> with these <number> <superlative> <adjetive> <noun>
-# How to <verb> <noun> in <number> ways
-# <number> <adjetive> ways to <verb> <noun>
-# <number> <adjetive> ways I <past_verb> <noun>
-# This developer <verb> <noun>. What happened next is <adjetive>
 
 
 class BuzzfeedCommit
@@ -75,6 +65,100 @@ class BuzzfeedCommit
     ].join ' '
   end
 
+  # <past_verb> some <noun>. What happened next [is <adjective>|<consequence>]
+  def self.type5
+    [
+      past_verb,
+      'some',
+      "#{noun}.",
+      'What happened next',
+      ["is #{adjective}", consequence].shuffle.first
+    ].join ' '
+  end
+
+  # How to <verb> <noun> with these <number> <superlative> <adjective> <noun>
+  def self.type6
+    [
+      'How to',
+      verb,
+      noun,
+      'with these',
+      number,
+      superlative,
+      adjective,
+      noun
+    ].join ' '
+  end
+
+  # How to <verb> <noun> in <number> ways
+  def self.type7
+    [
+      'How to',
+      verb,
+      noun,
+      'in',
+      number,
+      'ways'
+    ].join ' '
+  end
+
+  # <number> <adjective> ways to <verb> <noun>
+  def self.type8
+    [
+      number,
+      adjective,
+      'ways to',
+      verb,
+      noun
+    ].join ' '
+  end
+
+  # <number> <adjective> ways I <past_verb> <noun>
+  def self.type9
+    [
+      number,
+      adjective,
+      'ways I',
+      past_verb,
+      'these',
+      noun
+    ].join ' '
+  end
+
+  # This developer <past_verb> <noun>. What happened next is <adjective>
+  def self.type10
+    [
+      'This developer',
+      past_verb,
+      'these',
+      "#{noun}.",
+      'What happened next',
+      ["is #{adjective}", consequence].shuffle.first
+    ].join ' '
+  end
+
+  # <you wont belive> in these <superlative> <adjective> <noun>
+  def self.type11
+    [
+      "You won't belive in these",
+      superlative,
+      adjective,
+      noun
+    ].join ' '
+  end
+
+  # <you wont belive> what happened [when|after] I <past_verb> these <noun>
+  def self.type12
+    [
+      "You won't belive what happened",
+      ['when','after'].shuffle.first,
+      'I',
+      past_verb,
+      'these',
+      noun
+    ].join ' '
+  end
+
   def self.time
     "#{rand(20)}:#{rand(59).to_s.rjust(2, "0")}"
   end
@@ -86,14 +170,13 @@ class BuzzfeedCommit
   def self._superlative
     [
       'hauntingly',
-      'of the most',
       'amazing',
-      'incredible',
-      'ridiculous',
+      'incredibly',
+      'ridiculously',
       'unbelivable',
       'excellent',
       'magnificent',
-      'wonderful',
+      'wonderfully',
       'marvelous',
       'supreme',
       'outstanding'
@@ -102,6 +185,11 @@ class BuzzfeedCommit
 
   def self._adjective
     [
+      'wonderful',
+      'superb',
+      'glorious',
+      'lovely',
+      'ridiculous',
       'beautiful',
       'wierd',
       'cute',
@@ -123,6 +211,10 @@ class BuzzfeedCommit
 
   def self._verb
     %w[ break fix refactor compile ]
+  end
+
+  def self._past_verb
+    %w[ broke fixed refactored implemented compiled ]
   end
 
   def self._consequence
@@ -164,7 +256,7 @@ class BuzzfeedCommit
     %w[ like hate love understand ]
   end
 
-  %w[_action _adverb _adjective _consequence _language _noun _subject _superlative _verb].each do |name|
+  %w[_action _adverb _adjective _consequence _language _noun _subject _superlative _past_verb _verb].each do |name|
     define_singleton_method "#{name.gsub(/^_/,'')}" do
       self.send(name).shuffle.first
     end

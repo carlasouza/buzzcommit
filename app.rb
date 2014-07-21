@@ -19,7 +19,9 @@ end
 
 get '/' do
   require_relative './buzzfeed_commit.rb'
-  type = ['type1', 'type2', 'type3', 'type4'].shuffle.first
+  type = ['type1', 'type2', 'type3', 'type4',
+          'type5', 'type6', 'type7', 'type8',
+          'type9', 'type10', 'type11', 'type12',].shuffle.first
   @msg = BuzzfeedCommit.send type
   puts @msg
   haml :home
