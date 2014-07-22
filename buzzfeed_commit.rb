@@ -137,20 +137,20 @@ class BuzzfeedCommit
     ].join ' '
   end
 
-  # <you wont belive> in these <superlative> <adjective> <noun>
+  # <you wont believe> in these <superlative> <adjective> <noun>
   def self.type11
     [
-      "You won't belive in these",
+      "You won't believe in these",
       superlative,
       adjective,
       noun
     ].join ' '
   end
 
-  # <you wont belive> what happened [when|after] I <past_verb> these <noun>
+  # <you wont believe> what happened [when|after] I <past_verb> these <noun>
   def self.type12
     [
-      "You won't belive what happened",
+      "You won't believe what happened",
       ['when','after'].shuffle.first,
       'I',
       past_verb,
@@ -191,7 +191,7 @@ class BuzzfeedCommit
       'lovely',
       'ridiculous',
       'beautiful',
-      'wierd',
+      'weird',
       'cute',
       'ugly'
     ]
@@ -199,6 +199,7 @@ class BuzzfeedCommit
 
   def self._noun
     [
+      'typos',
       'libs',
       'change requests',
       'lines of code',
