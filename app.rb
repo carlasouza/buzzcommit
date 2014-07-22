@@ -62,6 +62,9 @@ __END__
           git commit -m "
           %a.buzzfeed.message{href: "/", rel: "nofollow"}= @msg.downcase.capitalize + '.'
           "
+        %p
+          %a{title:'Generate new commit message', href: '/', rel: 'nofollow'}
+            %img(src="/reload.png")
       .push
       %center
         %iframe{allowtransparency: "true", frameborder: "0", scrolling: "no", src: "//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fbuzzcommit.com&width&layout=button&action=like&show_faces=false&share=false&height=20&appId=106768876164959", style: "border:none; overflow:hidden; height:20px; width: 70px;"}
@@ -79,7 +82,7 @@ __END__
 
         %br/
         %a.red{title: 'Made by', href: 'http://carlasouza.com'}♥
-        %a{title: 'Inspiration', href: 'https://storify.com/anirvan/buzzfeed-style-commit-messages'}♦
+        %a.red{title: 'Inspiration', href: 'https://storify.com/anirvan/buzzfeed-style-commit-messages'}♦
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-52950937-1']);
